@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+#icon1{
+    font-size: 8rem;
+    color:rgb(222, 66, 19);
+    margin-left: 10.1rem; 
+
+}
+#icon2{
+    color:rgb(222, 66, 19);
+    margin-top: 5px;
+}
+#icon3{
+    color:rgb(222, 66, 19);
+    margin-top: 5px;
+}
+
+#formpage{
+    background-color: white;
+    width: 450px;
+    margin: 10vh auto;
+}
+.headline{
+    text-align: center;
+}
+.welcome{
+    font-size: 10px;
+    text-align: center;
+
+} 
+.input-type{
+    margin: 15px 40px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+
+} 
+
+.input-type input{
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px; 
+    outline: none;
+    /* transition: 0.3s; */
+}
+
+.input-type input:focus {
+    border: 2px solid rgb(233, 95, 54);
+    border-color:rgb(233, 95, 54) ;
+    /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); */
+}
+
+
+.input-type label{
+    font-weight: 500;
+    margin: 5px 10px;
+}
+
+.login{
+    padding: 10px;
+    margin:20px 55px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color:rgb(222, 66, 19);
+    width: 25% ;
+    margin-left: 10.5rem; 
+    font-weight: bold;
+    color:white ;
+}
+.login:hover{
+    
+    background-color:rgb(170, 49, 13);
+}
+
+.checkbox{
+    text-decoration: none;
+    font-size: 13px;  
+    margin-left: 8px;
+ }
+ .forgot{
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 9.5rem;
+    color:rgb(222, 66, 19);
+}
+
