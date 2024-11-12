@@ -1,3 +1,8 @@
+document.getElementById('showPassword').addEventListener('change', function() {
+    const passwordField = document.getElementById('password');
+    passwordField.type = this.checked ? 'text' : 'password';
+});
+
 function MyButton(event) {
     event.preventDefault();
 
@@ -50,7 +55,8 @@ function MyButton(event) {
 async function submitForm(data) {
     try {
       
-        const response = await fetch(' https://hastin-container.com/staging/app/auth/login', {
+        const response = await fetch('https://hastin-container.com/staging/app/auth/login',
+             {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -61,13 +67,9 @@ async function submitForm(data) {
         if (response.ok) {
             const result = await response.json();
             console.log("User Login Successfully:", result);
-
-           
-            alert("User Login Successfully!");
-
-           
-            document.getElementById('userForm').reset();
-            fetchUserData();
+            alert("User Login Successfully!");           
+            document.getElementById('formpage').reset();
+            
         } else {
            
             throw new Error("Login failed");
@@ -79,6 +81,6 @@ async function submitForm(data) {
     }
 }
        
-        submitForm(data);
+      submitForm(data);
     }
 }

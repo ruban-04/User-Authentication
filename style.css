@@ -4,10 +4,16 @@
     box-sizing: border-box;
     overflow: hidden;
 }
+.container-fluid{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(232, 215, 215) 0%, rgb(213, 115, 55) 100%); 
+    /* background: white;  */
+    height: 100vh;
+}
 #icon1{
     font-size: 8rem;
     color:rgb(222, 66, 19);
     margin-left: 10.1rem; 
+    margin-top: 10px;
 
 }
 #icon2{
@@ -20,9 +26,11 @@
 }
 
 #formpage{
-    background-color: white;
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(232, 215, 215) 0%, rgb(129, 222, 241) 100%);  */
     width: 450px;
     margin: 10vh auto;
+    background: white;
+    
 }
 .headline{
     text-align: center;
@@ -80,12 +88,13 @@
 .checkbox{
     text-decoration: none;
     font-size: 13px;  
-    margin-left: 8px;
+    margin-left: 45px;
+   
  }
  .forgot{
     text-decoration: none;
     font-size: 13px;
-    margin-left: 9.5rem;
+    margin-left: 9.7rem;
     color:rgb(222, 66, 19);
 }
 

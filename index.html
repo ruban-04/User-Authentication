@@ -11,37 +11,36 @@
 </head>
 <body>
 
-       
-<div class="container">
+<div class="container-fluid">
     <form action="" id="formpage" class="shadow">  
-        <i class='bx bxs-user-circle'id="icon1" ></i>
+        <i class='bx bxs-user-circle' id="icon1"></i>
 
-        <h3 class="headline pt-3">Hello Again!</h3>
-        <p class="welcome">Welcome to Login ! </p>
+        <h3 class="headline pt-1">Hello Again!</h3>
+        <p class="welcome">Welcome to Login!</p>
+        
         <div class="input-type">
-            <label for="username"><i class='bx bxs-user 'id="icon2"></i>Username </i></label>
-            <input type="text" class="shadow form-control" placeholder="Enter your Username"  name="username" id="userName">
+            <label for="username"><i class='bx bxs-user' id="icon2"></i>Username</label>
+            <input type="text" class="shadow form-control" placeholder="Enter your Username" name="username" id="userName">
             <div id="nameError"></div>
         </div>
-        <div class="input-type">
-            <label for="password"><i class='bx bxs-lock-alt' id="icon3" ></i>Password </i></label>
-            <div class="insert-icon">
-            <input type="password" class="shadow form-control" placeholder="Enter your password" name="password" id="password">
         
+        <div class="input-type">
+            <label for="password"><i class='bx bxs-lock-alt' id="icon3"></i>Password</label>
+            <div class="insert-icon">
+                <input type="password" class="shadow form-control" placeholder="Enter your password" name="password" id="password">
             </div>
             <div id="passwordError"></div>
-
-            <div class="checkbox mt-3">
-                <input type="checkbox" class="check"> Show Password
-                <a class="forgot" href="">Forgot Password!</a>
-                </div>
         </div>
 
+        <div class="checkbox mt-3">
+            <input type="checkbox" style="accent-color: rgb(222, 66, 19);margin-top: 6px;  cursor: pointer;" class="check" id="showPassword"> Show Password
+            <a class="forgot" href="#">Forgot Password?</a>
+        </div>
 
-        <button class="login" onclick="MyButton(event)">Login</button>
+        <button type="button" class="login" onclick="MyButton(event)">Login</button>
     </form>
-    
+</div>
 
-</body>
 <script src="index.js"></script>
+</body>
 </html>
