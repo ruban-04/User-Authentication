@@ -3,22 +3,16 @@ document.getElementById('showPassword').addEventListener('change', function() {
     passwordField.type = this.checked ? 'text' : 'password';
 });
 
+
+
 function MyButton(event) {
     event.preventDefault();
 
-    // Get form input values
-
     let userName = document.getElementById('userName').value;
     let password = document.getElementById('password').value;
-
-    // Error message elements
-
     let nameError = document.getElementById('nameError');
     let passwordError = document.getElementById('passwordError');
-
     let valid = true;
-
-    // Validation for username
 
     if (userName.trim() === "") {
         nameError.textContent = "Username is required*";
@@ -28,8 +22,6 @@ function MyButton(event) {
     } else {
         nameError.textContent = '';
     }
-
-    // Validation for password
 
     if (password.trim() === "") {
         passwordError.textContent = "Password is required*";
@@ -45,42 +37,110 @@ function MyButton(event) {
         passwordError.textContent = '';
     }
 
-    
     if (valid) {
-        const data = {
-            userName: userName,
-            password: password,
-        };
-       
+        const data = { userName: userName, password: password };
+        submitForm(data);
+    }
+}
+
+
 async function submitForm(data) {
     try {
-      
-        const response = await fetch('https://hastin-container.com/staging/app/auth/login',
-             {
+        const response = await fetch('https://hastin-container.com/staging/app/auth/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data), 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
         });
-      
+
         if (response.ok) {
             const result = await response.json();
             console.log("User Login Successfully:", result);
-            alert("User Login Successfully!");           
-            document.getElementById('formpage').reset();
-            
-        } else {
+
+          
+            localStorage.setItem('opaque', result.data.opaque);
+            localStorage.setItem('accessCode', result.data.accessCode);
+            localStorage.setItem('jwtToken', result.data.jwt);
+
+
            
+            document.getElementById('formpage').reset();
+            openOtpModal();
+        } else {
             throw new Error("Login failed");
         }
     } catch (error) {
-        
         console.error("Error:", error);
         alert("There was an error submitting the form.");
     }
 }
+
+
+
+function closeOtpModal() {
+    document.getElementById('otpModal').style.display = 'none';
+}
+
+
+
+function openOtpModal() {
+  
+    const opaque = localStorage.getItem('opaque');
+    const accessCode = localStorage.getItem('accessCode');
+    
+    
+    document.getElementById('otpPrefix').textContent = opaque; 
+    document.getElementById('otpInput').value = accessCode; 
+
+   
+    document.getElementById('otpModal').style.display = 'block';
+
+    
+    document.getElementById('resendOtp').onclick = function() {
        
-      submitForm(data);
+        const payload = {
+            opaque: opaque,
+            accessCode: accessCode,
+        };
+        
+        
+        sendOtp(payload);
+    };
+}
+
+
+async function sendOtp(data) {
+    try {
+        
+        const jwtToken = localStorage.getItem('jwtToken'); 
+        
+        if (!jwtToken) {
+            alert("Authorization token is missing.");
+            return;
+        }
+
+       
+        const response = await fetch('https://hastin-container.com/staging/app/auth/access-code/validate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `BslogiKey ${jwtToken}`, 
+            },
+            body: JSON.stringify(data), 
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log("Successfully:", result);
+            alert("Successfully!");           
+            document.getElementById('formpage').reset();
+        } else {
+            throw new Error("Login failed");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("There was an error submitting the form.");
     }
 }
+
+
+
