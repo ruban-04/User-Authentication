@@ -51,14 +51,19 @@
     <div class="modal-content">
         <span class="close" onclick="closeOtpModal()">&times;</span>
         <h2>OTP Verification</h2>
-        <p>We've sent an OTP to your registered phone number. Please enter it below:</p>
-        <div>
-            <span id="otpPrefix"> </span>
+        <p>One-Time Password has been sent to ******8413</p>
+        <div class="mt-1" >
+            <span id="otpPrefix"></span>
+            
             <input type="text" id="otpInput" maxlength="5" required>
         </div>
-        <p id="timer">02:00</p>
-        <a href="" id="resendOtp" onclick="sendOtp()">Resend OTP</a>
-        <!-- <link id="resendOtp" onclick="sendOtp()">Resend OTP  -->
+        <div class="d-flex mt-2" style="justify-content: center;">
+        <i class='bx bx-timer' style="font-size: 25px; color:rgb(222, 66, 19);"></i>
+        <p id="timer">0.5:00</p>
+        <a href="" id="resend">Resend OTP</a>
+</div>
+        <button id="Submit" onclick="resendOtp()">Submit</button>
+       
       
     </div>
 </div>

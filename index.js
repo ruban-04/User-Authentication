@@ -93,9 +93,11 @@ function openOtpModal() {
 
    
     document.getElementById('otpModal').style.display = 'block';
+    startTimer()
 
     
-    document.getElementById('resendOtp').onclick = function() {
+    document.getElementById('Submit').onclick = function() {
+        // document.getElementById("resendOtp").innerText = "Resend OTP";{
        
         const payload = {
             opaque: opaque,
@@ -103,12 +105,34 @@ function openOtpModal() {
         };
         
         
-        sendOtp(payload);
+        resendOtp(payload);
+        startTimer()
     };
+}
+let timerInterval;
+function startTimer() {
+    let timeRemaining = 30;  
+    document.getElementById('timer').textContent = "01:00";
+
+    clearInterval(timerInterval); 
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        let minutes = Math.floor(timeRemaining / 30);
+        let seconds = timeRemaining % 30;
+
+        document.getElementById('timer').textContent = 
+            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            alert("OTP expired. Please request a new OTP.");
+        }
+    }, 1000); 
 }
 
 
-async function sendOtp(data) {
+
+async function resendOtp(data) {
     try {
         
         const jwtToken = localStorage.getItem('jwtToken'); 
@@ -130,17 +154,18 @@ async function sendOtp(data) {
 
         if (response.ok) {
             const result = await response.json();
-            console.log("Successfully:", result);
-            alert("Successfully!");           
+            console.log("Submit Successfully:", result);
+            alert("Submit Successfully!");           
             document.getElementById('formpage').reset();
+            clearInterval(timerInterval)
         } else {
             throw new Error("Login failed");
         }
-    } catch (error) {
+     
+    }
+     catch (error) {
         console.error("Error:", error);
         alert("There was an error submitting the form.");
     }
 }
-
-
 
