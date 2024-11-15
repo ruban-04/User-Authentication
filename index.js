@@ -158,6 +158,8 @@ async function resendOtp(data) {
             alert("Submit Successfully!");           
             document.getElementById('formpage').reset();
             clearInterval(timerInterval)
+            // window.location="vendor.html"
+            window.location = "vendor.html";
         } else {
             throw new Error("Login failed");
         }

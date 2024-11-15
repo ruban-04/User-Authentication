@@ -104,14 +104,14 @@
 
 .modal {
     display: none;
-    /* position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 30%; */
+    width: 30%;
     padding: 3rem 30rem;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    /* z-index: 1000; */
+    z-index: 1000;
 }
 
 .modal-content {
@@ -129,9 +129,9 @@
 }
 
 .close {
-    /* position: absolute;
-    /* top: px; */
-    /* right: 10px;  */
+     position: absolute;
+     top: px; 
+     right: 10px; 
     font-size: 30px;
     cursor: pointer;
     margin-left: 32rem;
@@ -159,3 +159,20 @@
     font-weight: bold;
     color:white ;
 }
+#user-icon{
+    color:rgb(222, 66, 19);
+}
+#print-table th,#print-table tr{
+border: none;
+}
+
+#print-table td:hover,#print-table th:hover {
+       background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(249, 239, 239) 0%, rgb(248, 168, 118) 100%); 
+
+    padding: 8px;
+  }
+ 
+  #print-table th{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(249, 239, 239) 0%, rgb(248, 168, 118) 100%); 
+  }
+  
