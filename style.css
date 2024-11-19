@@ -171,13 +171,11 @@
 }
 
 
-#print-table td:hover,#print-table th:hover {
-       background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(249, 239, 239) 0%, rgb(248, 168, 118) 100%); 
 
-   }
  
   #print-table th{
-    color:rgb(229, 102, 64);
+    color:white;
+    background-color:rgb(229, 102, 64);
   }
   
   .add{
@@ -205,4 +203,35 @@ option{
     font-size: 12px;
     width: 90%;
     margin-left: 15px;
+}
+
+.form-floating select{
+    width: 90%;
+    margin-left: 15px;
+}
+
+.savebutton{
+    border: none;
+    margin-left: 88.7rem;
+    margin-top: 3rem;
+    padding: 10px 25px;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color:rgb(222, 66, 19);
+    border-color:rgb(222, 66, 19) ;
+
+}
+.savebutton:hover{
+    
+    background-color:rgb(170, 49, 13);
+}
+
+#creatTable th{
+    color:white;
+    background-color:rgb(229, 102, 64);
+}
+
+.underInput:hover{
+    border-color:rgb(229, 102, 64);
 }

@@ -94,6 +94,10 @@ function displayTable(users) {
             <td>${user.address}</td>
             <td>${user.country}</td>
             <td>${user.status}</td>
+              <td>
+                   <i class='bx bxs-calendar-edit text-success fs-5 '></i>
+                </td>
+
 
         </tr>`;
         tableBody.innerHTML += row;
