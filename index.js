@@ -19,7 +19,14 @@ function MyButton(event) {
         nameError.style.color = "red";
         nameError.style.fontSize = "13px";
         valid = false;
-    } else {
+    }
+    else if (userName !=="ebrain") {
+        nameError.textContent = "Username Invalid*";
+        nameError.style.color = "red";
+        nameError.style.fontSize = "13px";
+        valid = false;
+    } 
+    else {
         nameError.textContent = '';
     }
 
@@ -33,7 +40,14 @@ function MyButton(event) {
         passwordError.style.color = "red";
         passwordError.style.fontSize = "13px";
         valid = false;
-    } else {
+    } 
+    else if (password !=="Ji#993te") {
+        passwordError.textContent = "Password is wrong*";
+        passwordError.style.color = "red";
+        passwordError.style.fontSize = "13px";
+        valid = false;
+    } 
+    else {
         passwordError.textContent = '';
     }
 
@@ -70,7 +84,7 @@ async function submitForm(data) {
         }
     } catch (error) {
         console.error("Error:", error);
-        alert("There was an error submitting the form.");
+        // alert("There was an error submitting the form.");
     }
 }
 

@@ -310,3 +310,66 @@ function populateCityDropdown(data) {
 }
 
 fetchCurrencies();
+
+
+function updateSerialNumbers() {
+  const rows = document.querySelectorAll("#table2 tr");
+  rows.forEach((row, index) => {
+      row.querySelector(".serialno").textContent = index + 1; 
+  });
+}
+
+function addRow() {
+  const tableBody = document.getElementById("table2");
+  const newRow = document.createElement("tr");
+
+  newRow.innerHTML = `
+             <td class="serialno"></td>
+                <td>
+                    <div class="form-floating ">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name" placeholder=" Name" name=" Name">
+                        <label for="name"> Name</label>
+                        <div id="Nameerror"></div>
+                    </div>
+                </td>
+                <td> 
+                    <div class="form-floating ">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email" placeholder=" Email" name=" Email">
+                        <label for="Email"> Email</label>
+                        <div id="Emailerror"></div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-floating ">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneno" placeholder=" phno" name=" phno">
+                        <label for="phno">Phone No</label>
+                        <div id="numError"></div>
+                    </div>
+                </td>
+               
+                <td>
+                    <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="default" placeholder="default"  name="default">
+                        <option value="" selected disabled class="mt-4">Is Default</option>
+                        <option value="">Yes</option>
+                        <option value="">No</option>
+                    </select>
+                    <label for="default"></label>
+                    <div id="defaultError"></div>
+                </td>
+                <td>
+                <i class='bx bxs-trash text-danger fs-3  delete-row' id="delete" ></i>
+            </td>
+  `;
+
+  tableBody.appendChild(newRow);
+  updateSerialNumbers(); 
+}
+function removeRow(event) {
+  if (event.target.classList.contains("delete-row")) {
+      const row = event.target.closest("tr");
+      row.remove(); 
+      updateSerialNumbers();
+  }
+}
+document.getElementById("addRowButton").addEventListener("click", addRow); 
+document.getElementById("table2").addEventListener("click", removeRow); 

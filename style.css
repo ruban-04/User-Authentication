@@ -177,9 +177,15 @@
     color:white;
     background-color:rgb(229, 102, 64);
   }
+.parent-container1{
+    display: flex;
+    justify-content: end;
+    /* text-align: end; */
+}
+  
   
   .add{
-    margin-left: 87rem;
+    /* margin-left: 87rem; */
     background-color:rgb(222, 66, 19);
     color: white;
     font-size: 15px;
@@ -193,7 +199,7 @@
 }
 .form-floating input{
     width: 90%;
-    margin-left: 15px;
+    margin-left: 24px;
 }
 .form-floating label{
 color: grey;
@@ -207,19 +213,22 @@ option{
 
 .form-floating select{
     width: 90%;
-    margin-left: 15px;
+    margin-left: 24px;
 }
-
+.parentcontainer{
+    text-align: end;
+}
 .savebutton{
     border: none;
-    margin-left: 88.7rem;
-    margin-top: 3rem;
+    /* margin-left: 88rem; */
+    /* margin-top: 3rem; */
     padding: 10px 25px;
     color: white;
     font-weight: 600;
     border-radius: 5px;
     background-color:rgb(222, 66, 19);
     border-color:rgb(222, 66, 19) ;
+    display: inline-block;
 
 }
 .savebutton:hover{
@@ -235,3 +244,20 @@ option{
 .underInput:hover{
     border-color:rgb(229, 102, 64);
 }
+
+#formContent{
+    margin-left: 11px;
+}
+#creatTable{
+    width: 96.2%;
+    margin-left: 2%;
+}
+
+
+
+
+
+
+
+
+

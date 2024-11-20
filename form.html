@@ -10,20 +10,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+     <h3>Create Vendor</h3>
     <div class="d-flex " style="margin-top: 7rem;">
+       
         <form action="" id="formpage" class="shadow">
         <div class="form1">
             <h5 class="ps-3 mt-3" style="color:rgb(229, 102, 64);">Basic Information</h5>
 
         <div class="form-floating mb-3">
             <input type="text" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="vendorName" placeholder="vendor name" name="vendorname">
-            <label for="vendorName"> Vendor Name</label>
+            <label for="vendorName" id="formContent"> Vendor Name</label>
             <div id="nameError"></div>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="vendorCode" placeholder="vendor code" name="vendorcode">
-            <label for="vendorCode"> Vendor Code</label>
+            <label for="vendorCode" id="formContent"> Vendor Code</label>
             <div id="codeError"></div>
         </div>
 
@@ -34,19 +36,19 @@
                 <option value="company">Company</option>
                 <option value="individual">Individual</option>
             </select>
-            <label for="vendorType">Choose Vendor Type</label>
+            <label for="vendorType" id="formContent">Choose Vendor Type</label>
             <div id="typeError"></div>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="registrationNo" placeholder=" Tax Registration No" name=" RegistrationNo">
-            <label for=" registrationNo"> Tax Registration No</label>
+            <label for=" registrationNo" id="formContent"> Tax Registration No</label>
             <div id="taxRegistrationNoError"></div>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="comRegistrationNo" placeholder=" Company Registration No" name=" ComRegistrationNo">
-            <label for=" registrationNo"> Company Registration No</label>
+            <label for=" registrationNo" id="formContent"> Company Registration No</label>
             <div id="comRegistrationNoError"></div>
 
         </div>
@@ -57,7 +59,7 @@
     <select id="currencyContainer" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" name="chooseCurrency">
         <option value="" disabled selected></option>
     </select>
-    <label for="currencyContainer">Choose Currency</label>
+    <label for="currencyContainer" id="formContent">Choose Currency</label>
     <div id="currencyError"></div>
 </div>
  </form>
@@ -70,13 +72,13 @@
 
         <div class="form-floating mb-3">
             <input type="text" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="add1" placeholder="Address 1" name="Address 1">
-            <label for="add1">Address 1</label>
+            <label for="add1" id="formContent">Address 1</label>
             <div id="addressError1"></div>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="add2" placeholder="Address 2 " name="Address 2">
-            <label for="add2"> Address 2</label>
+            <label for="add2" id="formContent"> Address 2</label>
             <div id="addressError2"></div>
         </div>
 
@@ -84,7 +86,7 @@
             <select id="country" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" name="chooseCountry">
                 <option value="" disabled selected>Choose Country</option>
             </select>
-            <label for="Choose Country">Choose Country</label>
+            <label for="Choose Country" id="formContent">Choose Country</label>
             <div id="countryError"></div>
         </div>
 
@@ -92,13 +94,13 @@
             <select id="city" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" name="choose City">
                 <option value="" disabled selected></option>
             </select>
-            <label for="Choose City">Choose City</label>
+            <label for="Choose City" id="formContent">Choose City</label>
             <div id="chooseCityError"></div>
         </div>
 
         <div class="form-floating mb-3" style="padding-bottom: 4.5rem;">
             <input type="text" class="underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="zip" placeholder=" Zip Code" name=" Zip Code">
-            <label for=" Zip Code"> Zip Code</label>
+            <label for=" Zip Code" id="formContent"> Zip Code</label>
             <div id="zipError"></div>
 
         </div>
@@ -112,32 +114,32 @@
 
         <div class="form-floating mb-3">
             <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Bank Account Name" placeholder="Bank Account Name" name="vendorname">
-            <label for="vendorName">Bank Account Name</label>
+            <label for="vendorName" id="formContent">Bank Account Name</label>
             <div id="accountNameError"></div>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Bank Account No" placeholder="Bank Account No" name="Bank Account No">
-            <label for="Bank Account No"> Bank Account No</label>
+            <label for="Bank Account No" id="formContent"> Bank Account No</label>
             <div id="accountNoError"></div>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Bank Name
             " placeholder="Bank Name" name="Bank Name">
-            <label for="Bank Name"> Bank Name</label>
+            <label for="Bank Name" id="formContent"> Bank Name</label>
             <div id="bankNameError"></div>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text"  class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Branch" placeholder=" Branch" name=" Branch">
-            <label for=" Branch">Branch</label>
+            <label for=" Branch" id="formContent">Branch</label>
             <div id="branchError"></div>
         </div>
 
         <div class="form-floating mb-3" style="padding-bottom: 4.5rem;">
             <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="comRegistrationNo" placeholder=" Company Registration No" name=" ComRegistrationNo">
-            <label for=" registrationNo"> Swift Code</label>
+            <label for=" registrationNo" id="formContent"> Swift Code</label>
             <div id="SwiftError"></div>
 
         </div>
@@ -145,7 +147,6 @@
  </form>
 </div>
 
-    <button type="submit" class="savebutton" onclick="saveButton(event)">SAVE</button>
 
 
     <div id="creatTable" class="mb-5 mt-4 ">
@@ -161,10 +162,10 @@
                    
                 </tr>
             </thead>
-           <tbody id="table2"></tbody>
-           <tbody id="tableBody">
+          
+           <tbody id="table2">
             <tr>
-                <td></td>
+                <td class="serialno"></td>
                 <td>
                     <div class="form-floating ">
                         <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name" placeholder=" Name" name=" Name">
@@ -196,11 +197,21 @@
                     <label for="default"></label>
                     <div id="defaultError"></div>
                 </td>
+                <td>
+                <i class='bx bxs-trash text-danger fs-3 ms-3 mt-2' ></i>
+            </td>
               </tr>
            </tbody>
-        </table>
-        </div>
 
+        </table>
+<div class="d-flex">
+        <button id="addRowButton" class="btn btn-primary mt-1"><i class='bx bx-list-plus fs-2' ></i>Add Row</button>
+    </div>
+
+        </div>
+       <div class="parentcontainer">
+        <button type="submit" class="savebutton me-4" onclick="saveButton(event)">SAVE</button>
+</div>
 </body>
 <script src="form.js"></script>
 </html>

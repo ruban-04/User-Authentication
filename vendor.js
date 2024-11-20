@@ -95,7 +95,7 @@ function displayTable(users) {
             <td>${user.country}</td>
             <td>${user.status}</td>
               <td>
-                   <i class='bx bxs-calendar-edit text-success fs-5 '></i>
+                 <i class='bx bx-edit-alt text-success fs-5' ></i>
                 </td>
 
 
