@@ -1,3 +1,4 @@
+let editingUserId = null; 
 
 async function fetchUserProfile() {
    
@@ -34,7 +35,9 @@ async function fetchUserProfile() {
         alert("There was an error fetching the user profile.");
     }
 }
-
+function addVendor() {
+    window.location = "form.html";
+  }
 
 
 async function vendortable() {
@@ -94,15 +97,27 @@ function displayTable(users) {
             <td>${user.address}</td>
             <td>${user.country}</td>
             <td>${user.status}</td>
-              <td>
-                 <i class='bx bx-edit-alt text-success fs-5' ></i>
-                </td>
-
-
+            <td>
+                <i class='bx bx-edit-alt text-success fs-5' data-id="${user.id}"></i>
+            </td>
         </tr>`;
         tableBody.innerHTML += row;
     });
+    const editIcons = tableBody.querySelectorAll('.bx-edit-alt');
+    editIcons.forEach(icon => {
+        icon.addEventListener('click', (event) => {
+            const userId = event.target.getAttribute('data-id');
+            editUser(userId);
+        });
+    });
 }
+
+function editUser(id) {
+    window.location.href = `form.html?id=${id}`;;
+}
+
 
 fetchUserProfile();
 vendortable();
+
+

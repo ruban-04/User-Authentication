@@ -1,13 +1,71 @@
-function addVendor() {
-  window.location = "form.html";
+function getQueryParam() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id'); // Retrieve 'id' from query string
+  console.log(id);
+  editUser(id);
 }
+
+getQueryParam(); 
 
 let countryId = '';
 
 
+async function editUser(id) {
+  const jwtToken = localStorage.getItem("jwtToken");
+        const response = await fetch(`https://hastin-container.com/staging/api/vendor/get/${id}`, {
+            method: 'GET',
+            headers: {
+              'Authorization': `BslogiKey ${jwtToken}`,
+              'Content-Type': 'application/json'
+            },
+           
+        });
 
 
-function saveButton(event) { 
+
+        if (response.ok) {
+            const user = await response.json();
+            const data = user.data;
+            console.log(data);
+
+             document.getElementById('vendorName').value =data.vendorName;
+            document.getElementById('vendorCode').value = data.vendorCode;
+            document.getElementById('vendorType').value = data.vendorType;
+            document.getElementById('add1').value =data.address;
+            document.getElementById('country').value = data.country;
+            document.getElementById('registrationNo').value =data.taxRegNo;
+            document.getElementById('comRegistrationNo').value =data.companyRegNo;
+            document.getElementById('currencyContainer').value =data.defaultCurrencyId;
+            document.getElementById('add1').value =data.address1;
+            document.getElementById('add2').value =data.address2;
+            document.getElementById('country').value =data.country;
+            document.getElementById('city').value =data.cityId;
+            document.getElementById('zip').value =data.postalCode;
+            document.getElementById('bankaccountName').value =data.bankAcctName;
+            document.getElementById('bankaccountNumber').value =data.bankAccountNum;
+            document.getElementById('bankName').value =data.bankName;
+            document.getElementById('branch').value =data.bankBranchName;
+            document.getElementById('swiftCode').value =data.bankSwiftCode;
+
+            for (let i = 0; i < data.contactList.length; i++) {
+              document.getElementById('Name').value = data.contactList[i].name;
+              document.getElementById('Email').value = data.contactList[i].email;
+              document.getElementById('phoneNumber').value = data.contactList[i].mobileNo;
+              document.getElementById('chooseDefault').value = data.contactList[i].isDefault;
+            }
+            
+  // let Name = document.getElementById('Name').value;
+  // let Email = document.getElementById('Email').value;
+  // let phoneNumber= document.getElementById('phoneNumber').value;
+  // let chooseDefault = document.getElementById('chooseDefault').value;
+            // editingUserId = id; 
+        } else {
+            throw new Error("Failed to fetch user data");
+        }
+}
+
+
+async function saveButton(event) { 
   event.preventDefault();
 
   let vendorName = document.getElementById('vendorName').value;
@@ -21,6 +79,10 @@ function saveButton(event) {
   let country = document.getElementById('country').value;
   let city= document.getElementById('city').value;
   let zip = document.getElementById('zip').value;
+  let Name = document.getElementById('Name').value;
+  let Email = document.getElementById('Email').value;
+  let phoneNumber= document.getElementById('phoneNumber').value;
+  let chooseDefault = document.getElementById('chooseDefault').value;
 
 
   let nameError = document.getElementById('nameError');
@@ -34,7 +96,10 @@ function saveButton(event) {
   let countryError = document.getElementById('countryError');
   let chooseCityError = document.getElementById('chooseCityError');
   let zipError = document.getElementById('zipError');
-  
+  let Nameerror = document.getElementById('Nameerror');
+  let Emailerror = document.getElementById('Emailerror');
+  let numberError= document.getElementById('numberError');
+  let defaultError= document.getElementById('defaultError');
 
 
   let valid = true;
@@ -129,14 +194,14 @@ function saveButton(event) {
 
    
    if (country.trim() === "") {
-      countryError.textContent = " Required*";
-      countryError.style.color = "red";
-      countryError.style.fontSize = "13px";
-      countryError.style.paddingLeft = "15px";
+    countryError.textContent = " Required*";
+    countryError.style.color = "red";
+    countryError.style.fontSize = "13px";
+    countryError.style.paddingLeft = "15px";
        valid = false;
    }
    else {
-      countryError.textContent = '';
+    countryError.textContent = '';
    }
 
    if (city.trim() === "") {
@@ -159,6 +224,113 @@ function saveButton(event) {
   else {
       zipError.textContent = '';
   }
+
+
+
+
+
+  if (Name.trim() === "") {
+    Nameerror.textContent = " Required*";
+    Nameerror.style.color = "red";
+    Nameerror.style.fontSize = "13px";
+    Nameerror.style.paddingLeft = "15px";
+     valid = false;
+ }
+ else {
+    Nameerror.textContent = '';
+ }
+
+ if (Email.trim() === "") {
+     Emailerror.textContent = " Required*";
+     Emailerror.style.color = "red";
+     Emailerror.style.fontSize = "13px";
+     Emailerror.style.paddingLeft = "15px";
+     valid = false;
+ }
+ else {
+     Emailerror.textContent = '';
+ }
+ if (phoneNumber.trim() === "") {
+    numberError.textContent = " Required*";
+    numberError.style.color = "red";
+    numberError.style.fontSize = "13px";
+    numberError.style.paddingLeft = "15px";
+    valid = false;
+}
+else {
+    numberError.textContent = '';
+}
+
+if (chooseDefault.trim() === "") {
+  defaultError.textContent = " Required*";
+  defaultError.style.color = "red";
+  defaultError.style.fontSize = "13px";
+  defaultError.style.paddingLeft = "15px";
+  valid = false;
+}
+else {
+  defaultError.textContent = '';
+}
+
+
+
+
+
+
+
+  if (valid) {
+    const payload = {
+        contactList: [
+            {
+                name: Name,
+                email: Email,
+                mobileNo: phoneNumber,
+                isDefault: chooseDefault,
+                id: null
+            }
+        ],
+        vendorName: vendorName,
+        vendorCode: vendorCode,
+        vendorType: vendorType,
+        taxRegNo: registrationNo,
+        companyRegNo: comRegistrationNo,
+        //defaultCurrencyId: currencyContainer,
+        address1: add1,
+        address2: add2,
+        country: country,
+        postalCode: zip,
+        cityId: city,
+        createdBy: "adf8906a-cf9a-490f-a233-4df16fc86c58",
+        documentList: []
+    };
+    console.log(payload);
+    
+    const jwtToken = localStorage.getItem("jwtToken");
+
+    // try {
+        const response = await fetch('https://hastin-container.com/staging/api/vendor/create', {
+            method: 'POST',
+            headers: {
+              'Authorization': `BslogiKey ${jwtToken}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log("Vendor Created Successfully:", result);
+            alert("Vendor Created Successfully!");
+         
+            document.getElementById('vendorForm').reset();
+        } else {
+            throw new Error("Vendor creation failed!");
+        }
+    // } catch (error) {
+    //     console.error("Error occurred:", error);
+    //     alert("An error occurred while creating the vendor.");
+    // }
+}
 
 }
 
@@ -236,7 +408,7 @@ function populateCurrencyDropdown(data) {
   for (let obj of data) {
     let id = obj.id;
 
-    currencyContainer.innerHTML += `<option value="${id}"> ${obj.code}</option>`;
+    currencyContainer.innerHTML += `<option value="${obj.id}"> ${obj.name}</option>`;
   }
 }
 function populateCountryDropdown(data) {
@@ -357,7 +529,7 @@ function addRow() {
                     <div id="defaultError"></div>
                 </td>
                 <td>
-                <i class='bx bxs-trash text-danger fs-3  delete-row' id="delete" ></i>
+                <i class='bx bxs-trash text-danger fs-3 ms-3 mt-2 delete-row' id="delete" ></i>
             </td>
   `;
 
@@ -373,3 +545,4 @@ function removeRow(event) {
 }
 document.getElementById("addRowButton").addEventListener("click", addRow); 
 document.getElementById("table2").addEventListener("click", removeRow); 
+

@@ -10,8 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-     <h3>Create Vendor</h3>
-    <div class="d-flex " style="margin-top: 7rem;">
+     <h3 class="createVendor">Create Vendor</h3>
+    <div class="d-flex " style="margin-top: 3rem;">
        
         <form action="" id="formpage" class="shadow">
         <div class="form1">
@@ -33,8 +33,8 @@
             
             <select class="underInput form-select border-2 rounded-0 border-start-0 border-end-0 border-top-0"style="box-shadow: none;"id="vendorType"name="vendortype">
                 <option value="" selected disabled></option>
-                <option value="company">Company</option>
-                <option value="individual">Individual</option>
+                <option value="Company">Company</option>
+                <option value="Individual">Individual</option>
             </select>
             <label for="vendorType" id="formContent">Choose Vendor Type</label>
             <div id="typeError"></div>
@@ -113,33 +113,32 @@
             <h5 class="ps-3 mt-3" style="color:rgb(229, 102, 64);">Bank Details</h5>
 
         <div class="form-floating mb-3">
-            <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Bank Account Name" placeholder="Bank Account Name" name="vendorname">
+            <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankaccountName" placeholder="Bank Account Name" name="vendorname">
             <label for="vendorName" id="formContent">Bank Account Name</label>
             <div id="accountNameError"></div>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Bank Account No" placeholder="Bank Account No" name="Bank Account No">
+            <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankaccountNumber" placeholder="Bank Account No" name="Bank Account No">
             <label for="Bank Account No" id="formContent"> Bank Account No</label>
             <div id="accountNoError"></div>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Bank Name
-            " placeholder="Bank Name" name="Bank Name">
+            <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="bankName" placeholder="bankName" name="Bank Name">
             <label for="Bank Name" id="formContent"> Bank Name</label>
             <div id="bankNameError"></div>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text"  class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Branch" placeholder=" Branch" name=" Branch">
+            <input type="text"  class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="branch" placeholder=" Branch" name=" Branch">
             <label for=" Branch" id="formContent">Branch</label>
             <div id="branchError"></div>
         </div>
 
         <div class="form-floating mb-3" style="padding-bottom: 4.5rem;">
-            <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="comRegistrationNo" placeholder=" Company Registration No" name=" ComRegistrationNo">
-            <label for=" registrationNo" id="formContent"> Swift Code</label>
+            <input type="text" class=" underInput form-control border-2 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="swiftCode" placeholder=" Company Registration No" name="swift code">
+            <label for=" swift code" id="formContent"> Swift Code</label>
             <div id="SwiftError"></div>
 
         </div>
@@ -182,17 +181,17 @@
                 </td>
                 <td>
                     <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneno" placeholder=" phno" name=" phno">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneNumber" placeholder=" phno" name=" phno">
                         <label for="phno">Phone No</label>
-                        <div id="numError"></div>
+                        <div id="numberError"></div>
                     </div>
                 </td>
                
                 <td>
-                    <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="default" placeholder="default"  name="default">
+                    <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0" style="" id="chooseDefault" placeholder="default"  name="default">
                         <option value="" selected disabled class="mt-4">Is Default</option>
-                        <option value="">Yes</option>
-                        <option value="">No</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                     <label for="default"></label>
                     <div id="defaultError"></div>
@@ -205,7 +204,7 @@
 
         </table>
 <div class="d-flex">
-        <button id="addRowButton" class="btn btn-primary mt-1"><i class='bx bx-list-plus fs-2' ></i>Add Row</button>
+        <button id="addRowButton" class="btn btn-primary mt-1">Add Row</button>
     </div>
 
         </div>
