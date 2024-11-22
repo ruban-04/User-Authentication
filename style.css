@@ -7,14 +7,18 @@
 .container-fluid{
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(232, 215, 215) 0%, rgb(213, 115, 55) 100%); 
     /* background: white;  */
-    height: 100vh;
-    padding-top: 2.5rem;
+    /* height: 100vh; */
+    /* padding-top: 1rem; */
+}
+.usericon{
+    text-align: center;
 }
 #icon1{
     font-size: 8rem;
     color:rgb(222, 66, 19);
-    margin-left: 10.1rem; 
+    /* margin-left: 10.1rem;  */
     margin-top: 10px;
+    display: inline-block;
 
 }
 #icon2{
@@ -30,6 +34,7 @@
     width: 450px;
     margin:  auto;
     background: white;
+    overflow-y: hidden;
 
 
     
@@ -69,18 +74,19 @@
     font-weight: 500;
     margin: 5px 10px;
 }
-
+.loginbtn{
+    text-align: center;
+}
 .login{
     padding: 7px;
-    margin:20px 55px;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    display: inline-block;
+  margin: 30px 0;  
     cursor: pointer;
     font-size: 20px;
     border-radius: 10px;
     background-color:rgb(222, 66, 19);
     width: 80% ;
-    margin-left: 2.8rem; 
+    /* margin-left: 2.8rem;  */
     font-weight: bold;
     color:white ;
 }
@@ -110,7 +116,7 @@
     top: 0;
     left: 0;
     width: 30%;
-    padding: 3rem 30rem;
+    /* padding: 3rem 30rem; */
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
@@ -118,6 +124,7 @@
 
 .modal-content {
     position: absolute;
+    width: 57%;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -146,10 +153,13 @@
     color:rgb(222, 66, 19);
     margin-left: 6rem;
 }
+.otpBtn{
+    text-align: center;
+}
 
 #Submit{
     padding: 7px;
-    margin:20px 55px;
+    /* margin:20px 55px; */
     margin-top: 20px;
     margin-bottom: 35px;
     cursor: pointer;
@@ -157,9 +167,10 @@
     border-radius: 10px;
     background-color:rgb(222, 66, 19);
     width: 30% ;
-    margin-left: 12.2rem; 
+    /* margin-left: 12.2rem;  */
     font-weight: bold;
     color:white ;
+    display: inline-block;
 }
 .submit:hover{
     
@@ -220,8 +231,6 @@ option{
 }
 .savebutton{
     border: none;
-    /* margin-left: 88rem; */
-    /* margin-top: 3rem; */
     padding: 10px 25px;
     color: white;
     font-weight: 600;
@@ -232,7 +241,7 @@ option{
 
 }
 .savebutton:hover{
-    
+
     background-color:rgb(170, 49, 13);
 }
 
