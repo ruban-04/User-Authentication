@@ -33,7 +33,7 @@ async function editUser(id) {
     document.getElementById("vendorName").value = data.vendorName;
     document.getElementById("vendorCode").value = data.vendorCode;
     document.getElementById("vendorType").value = data.vendorType;
-    document.getElementById("add1").value = data.address;
+    // document.getElementById("add1").value = data.address;
     document.getElementById("country").value = data.country;
     countryIdGet = data.country;
     document.getElementById("registrationNo").value = data.taxRegNo;

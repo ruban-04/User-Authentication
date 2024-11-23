@@ -113,7 +113,7 @@ function displayTable(users) {
 }
 
 function editUser(id) {
-    window.location.href = `form.html?id=${id}`;;
+    window.location.href = `form.html?id=${id}`;
 }
 
 

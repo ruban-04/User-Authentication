@@ -98,13 +98,16 @@
 .checkbox{
     text-decoration: none;
     font-size: 13px;  
-    margin-left: 45px;
+    justify-content: space-between;
+    /* margin-left: 45px; */
    
  }
+ 
+
  .forgot{
     text-decoration: none;
     font-size: 13px;
-    margin-left: 9.7rem;
+    /* margin-left: 9.7rem; */
     color:rgb(222, 66, 19);
 }
 
