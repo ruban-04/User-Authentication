@@ -79,8 +79,8 @@ async function vendortable() {
 
     } catch (error) {
         console.error("Error:", error);
-        alert("There was an error fetching the user profile.");
-    }
+    //     alert("There was an error fetching the user profile.");
+     }
 }
 
 function displayTable(users) {

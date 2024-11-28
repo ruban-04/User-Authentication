@@ -199,7 +199,10 @@
     /* text-align: end; */
 }
   
-  
+.container{
+    max-width: 1436px !important;
+}
+
   .add{
     /* margin-left: 87rem; */
     background-color:rgb(222, 66, 19);
@@ -233,6 +236,7 @@ option{
 }
 .parentcontainer{
     text-align: end;
+    /* justify-content: space-between; */
 }
 .savebutton{
     border: none;
@@ -243,7 +247,8 @@ option{
     background-color:rgb(222, 66, 19);
     border-color:rgb(222, 66, 19) ;
     display: inline-block;
-    margin-right: 22px;
+    margin-top: 45px;
+    margin-right: 27px;
 
 }
 .savebutton:hover{

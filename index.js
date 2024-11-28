@@ -169,7 +169,7 @@ async function resendOtp(data) {
         if (response.ok) {
             const result = await response.json();
             console.log("Submit Successfully:", result);
-            alert("Submit Successfully!");           
+            // alert("Submit Successfully!");           
             document.getElementById('formpage').reset();
             clearInterval(timerInterval)
             // window.location="vendor.html"

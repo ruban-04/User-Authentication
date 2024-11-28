@@ -52,12 +52,18 @@ async function editUser(id) {
     document.getElementById("branch").value = data.bankBranchName;
     document.getElementById("swiftCode").value = data.bankSwiftCode;
 
-    for (let i = 0; i < data.contactList.length; i++) {
-      document.getElementById("Name").value = data.contactList[i].name;
-      document.getElementById("Email").value = data.contactList[i].email;
-      document.getElementById("phoneNumber").value =
+    for (let i = 0; i < data.contactList.length - 1; i++) {
+      addRow();
+    }
+
+    for (let i = 0; i <= data.contactList.length; i++) {
+
+      j = i + 1
+      document.getElementById("Name"+j).value = data.contactList[i].name;
+      document.getElementById("Email"+j).value = data.contactList[i].email;
+      document.getElementById("phoneNumber"+j).value =
         data.contactList[i].mobileNo;
-      document.getElementById("chooseDefault").value =
+      document.getElementById("chooseDefault"+j).value =
         data.contactList[i].isDefault;
       document.getElementById("rowId").value = data.contactList[i].id;
     }
@@ -67,6 +73,7 @@ async function editUser(id) {
     // let phoneNumber= document.getElementById('phoneNumber').value;
     // let chooseDefault = document.getElementById('chooseDefault').value;
     // editingUserId = id;
+    
   } else {
     throw new Error("Failed to fetch user data");
   }
@@ -86,10 +93,10 @@ async function saveButton(event) {
   let country = document.getElementById("country").value;
   let city = document.getElementById("city").value;
   let zip = document.getElementById("zip").value;
-  let Name = document.getElementById("Name").value;
-  let Email = document.getElementById("Email").value;
-  let phoneNumber = document.getElementById("phoneNumber").value;
-  let chooseDefault = document.getElementById("chooseDefault").value;
+  let Name = document.getElementById("Name1").value;
+  let Email = document.getElementById("Email1").value;
+  let phoneNumber = document.getElementById("phoneNumber1").value;
+  let chooseDefault = document.getElementById("chooseDefault1").value;
   let rowId = document.getElementById("rowId").value;
   let bankAcctName = document.getElementById("bankaccountName").value;
   let bankName = document.getElementById("bankName").value;
@@ -320,7 +327,7 @@ async function saveButton(event) {
       if (response.ok) {
         const result = await response.json();
         console.log("Vendor Updated Successfully:", result);
-        alert("Vendor Updated Successfully!");
+        // alert("Vendor Updated Successfully!");
         window.location = "vendor.html";
 
 
@@ -369,7 +376,7 @@ async function saveButton(event) {
       if (response.ok) {
         const result = await response.json();
         console.log("Vendor Created Successfully:", result);
-        alert("Vendor Created Successfully!");
+        // alert("Vendor Created Successfully!");
         window.location = "vendor.html";
 
 
@@ -534,37 +541,48 @@ function updateSerialNumbers() {
     row.querySelector(".serialno").textContent = index + 1;
   });
 }
-
+i = 1;
+newRow = "";
 function addRow() {
+
+  if(i == null){
+    i=1
+  }else{
+    i = i
+  }
+  i++;
   const tableBody = document.getElementById("table2");
-  const newRow = document.createElement("tr");
+  const newRow = document.createElement('tr')
+
+
 
   newRow.innerHTML = `
+
              <td class="serialno"></td>
                 <td>
                     <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name" placeholder=" Name" name=" Name">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name`+i+`" placeholder=" Name" name=" Name">
                         <label for="name"> Name</label>
                         <div id="Nameerror"></div>
                     </div>
                 </td>
                 <td> 
                     <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email" placeholder=" Email" name=" Email">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email`+i+`" placeholder=" Email" name=" Email">
                         <label for="Email"> Email</label>
                         <div id="Emailerror"></div>
                     </div>
                 </td>
                 <td>
                     <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneno" placeholder=" phno" name=" phno">
+                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneNumber`+i+`" placeholder=" phno" name=" phno">
                         <label for="phno">Phone No</label>
                         <div id="numError"></div>
                     </div>
                 </td>
                
                 <td>
-                    <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="default" placeholder="default"  name="default">
+                    <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="chooseDefault`+i+`" placeholder="default"  name="default">
                         <option value="" selected disabled class="mt-4">Is Default</option>
                         <option value="">Yes</option>
                         <option value="">No</option>
@@ -573,8 +591,10 @@ function addRow() {
                     <div id="defaultError"></div>
                 </td>
                 <td>
+                 <i id="`+ "correctButton" + i+`" onClick = "checkButtonClick(` + i + `)" class='bx bx-check text-success  fs-3 ms-3 mt-2 '></i>
                 <i class='bx bxs-trash text-danger fs-3 ms-3 mt-2 delete-row' id="delete" ></i>
             </td>
+          
   `;
 
   tableBody.appendChild(newRow);
@@ -589,3 +609,76 @@ function removeRow(event) {
 }
 document.getElementById("addRowButton").addEventListener("click", addRow);
 document.getElementById("table2").addEventListener("click", removeRow);
+
+
+function checkButtonClick(i) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+
+  console.log(i);
+  const Name = document.getElementById('Name' +i).value;
+  const Email = document.getElementById('Email'+i).value;
+  const phoneNumber = document.getElementById('phoneNumber'+i).value;
+  const chooseDefault = document.getElementById('chooseDefault'+i).checked;
+
+  const payload = {
+    name: Name,
+    email: Email,
+    mobileNo: phoneNumber,
+    isDefault: chooseDefault,
+    id: null,
+    vendorId: id,
+    createdBy: "111c9720-4abb-4beb-9303-34d0f2df67da"
+  };
+
+  console.log(payload);
+  
+
+
+
+
+  try {
+    
+    const jwtToken = localStorage.getItem("jwtToken");
+
+    const response =  fetch(
+      "https://hastin-container.com/staging/api/vendor/contact/create",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `BslogiKey ${jwtToken}`, 
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    if (response.ok) {
+      const result =  response.json();
+      console.log("Data saved successfully!", result);
+      alert("Data saved successfully!");
+   } else {
+      const errorMessage =  response.text(); 
+      throw new Error(errorMessage || "Vendor creation failed!");
+    }
+  } catch (error) {
+    console.error(error);
+    alert(`Error: ${error.message}`);
+  }
+
+console.log(i);
+}
+
+
+
+
+checkButton.addEventListener('click', async () => {
+ 
+  const Name = document.getElementById('Name').value;
+  const Email = document.getElementById('Email').value;
+  const phoneNumber = document.getElementById('phoneNumber').value;
+  const chooseDefault = document.getElementById('chooseDefault').checked;
+
+  
+});
+
