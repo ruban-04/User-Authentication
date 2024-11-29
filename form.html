@@ -11,9 +11,9 @@
 </head>
 <body>
     <div class="d-flex" style="justify-content: space-between;">
-    <h3 class="createVendor ps-4">Create Vendor</h3>
+    <h3 class="createVendor ">Create Vendor</h3>
     <div class="parentcontainer ">
-        <button type="submit" class="savebutton " onclick="saveButton(event)">SAVE</button>
+        <button type="submit" class="savebutton" id="savebutton" onclick="saveButton(event)">SAVE</button>
 </div>
 </div>
      
@@ -173,21 +173,24 @@
                 <td class="serialno" id="rowId">1</td>
                 <td>
                     <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0"  autocomplete="off"   style="box-shadow: none;" id="Name1" placeholder=" Name" name=" Name">
+                        <input type="text"
+                           class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0"  autocomplete="off"   style="box-shadow: none;" id="Name1" placeholder=" Name" name=" Name">
                         <label for="name"> Name</label>
                         <div id="Nameerror"></div>
                     </div>
                 </td>
                 <td> 
                     <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 "  autocomplete="off"  style="box-shadow: none;" id="Email1" placeholder=" Email" name=" Email">
+                        <input type="text"
+                          class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 "  autocomplete="off"  style="box-shadow: none;" id="Email1" placeholder=" Email" name=" Email">
                         <label for="Email"> Email</label>
                         <div id="Emailerror"></div>
                     </div>
                 </td>
                 <td>
                     <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 "  autocomplete="off" style="box-shadow: none;" id="phoneNumber1" placeholder=" phno" name=" phno">
+                        <input type="text"
+                          class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 "  autocomplete="off" style="box-shadow: none;" id="phoneNumber1" placeholder=" phno" name=" phno">
                         <label for="phno">Phone No</label>
                         <div id="numberError"></div>
                     </div>

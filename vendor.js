@@ -121,3 +121,8 @@ fetchUserProfile();
 vendortable();
 
   
+function logoutClickButton(){
+    localStorage.removeItem("jwtToken");
+    alert("logout successfully");
+    window.location.href = "index.html";
+}

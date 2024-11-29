@@ -9,11 +9,12 @@ function getQueryParam() {
     editUser(id);
   }
 }
-
+let savebutton = document.getElementById('savebutton');
 getQueryParam();
 
 async function editUser(id) {
   edit = true;
+  savebutton.innerHTML = 'Update';
   const jwtToken = localStorage.getItem("jwtToken");
   const response = await fetch(
     `https://hastin-container.com/staging/api/vendor/get/${id}`,
@@ -229,6 +230,7 @@ async function saveButton(event) {
     zipError.textContent = " Required*";
     zipError.style.color = "red";
     zipError.style.fontSize = "13px";
+
     zipError.style.paddingLeft = "15px";
     valid = false;
   } else {
@@ -329,7 +331,6 @@ async function saveButton(event) {
         console.log("Vendor Updated Successfully:", result);
         // alert("Vendor Updated Successfully!");
         window.location = "vendor.html";
-
 
         //document.getElementById("formpage").reset();
       } else {
@@ -584,8 +585,8 @@ function addRow() {
                 <td>
                     <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="chooseDefault`+i+`" placeholder="default"  name="default">
                         <option value="" selected disabled class="mt-4">Is Default</option>
-                        <option value="">Yes</option>
-                        <option value="">No</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                     <label for="default"></label>
                     <div id="defaultError"></div>
@@ -637,7 +638,7 @@ function checkButtonClick(i) {
 
 
 
-  try {
+ 
     
     const jwtToken = localStorage.getItem("jwtToken");
 
@@ -661,10 +662,7 @@ function checkButtonClick(i) {
       const errorMessage =  response.text(); 
       throw new Error(errorMessage || "Vendor creation failed!");
     }
-  } catch (error) {
-    console.error(error);
-    alert(`Error: ${error.message}`);
-  }
+  
 
 console.log(i);
 }

@@ -277,6 +277,15 @@ option{
     text-align: center;
     margin-top: 3rem;
     color:rgb(222, 66, 19);
+    padding-left: 25px;
+}
+
+#userMenu{
+    margin-right: 2.2rem;
+}
+
+#line{
+padding-left: 2px;
 }
 
 
@@ -298,11 +307,29 @@ option{
     box-shadow: 5px 5px 23px -4px gray !important;
 
 }
+
+.createVendor{
+    padding-left: 15px !important;
+}
+
 .savebutton{
     margin-right: 11px !important;
 }
 .modal-content{
     width: 65% !important;
+}
+
+.container{
+    
+    margin-left: -8px !important;
+}
+
+.add{
+    margin-right: -28px!important;
+}
+
+#userMenu{
+    margin-right: 5px !important;
 }
 
 }
@@ -321,10 +348,10 @@ option{
     margin-right: -17px  !important;
 }
 .createVendor{
-    margin-left: 1.5rem !important;
+    margin-left: 8px !important;
 }
 .add{
-    margin-left:36.7rem !important;
+    margin-left:36.9rem !important;
 }
 .parent-container1{
     margin-left:181% !important ;
@@ -335,6 +362,19 @@ option{
 .modal-content{
     width: 95% !important;
 }
+
+.container{
+    
+    margin-left: -12px !important;
+}
+
+#userMenu{
+    margin-right: -3rem !important;
+}
+
+
+
+
 }
 
 
@@ -352,13 +392,13 @@ option{
         margin-right: -67px !important;
     }
     .createVendor{
-        margin-left: 4.8rem;
+        margin-left: 8px !important;
     }
     .parent-container1{
         margin-left:203% !important ;
     }
     .add{
-        margin-left:36.7rem !important;
+        margin-left:36rem !important;
     }
     #circleUser{
         margin-top: 12px !important;
@@ -366,6 +406,15 @@ option{
     .modal-content{
         width: 95% !important;
     }
+
+    .container{
+    
+        margin-left: -12px !important;
+    }
+    #userMenu{
+        margin-right: -45px !important;
+    }
+    
 }
 
 
@@ -382,13 +431,13 @@ option{
         margin-right: -122px !important;
     }
     .createVendor{
-        margin-left: 8rem;
+        margin-left: .7rem !important;
     }
     .parent-container1{
         margin-left:238% !important ;
     }
     .add{
-        margin-left:36.7rem !important;
+        margin-left:36rem !important;
     }
     #circleUser{
         margin-top: 12px !important;
@@ -396,5 +445,15 @@ option{
     .modal-content{
         width: 95% !important;
     }
+
+    .container{
+    
+        margin-left: -12px !important;
+    }
+    
+    #userMenu{
+        margin-right: -50px !important;
+    }
+
 }
 

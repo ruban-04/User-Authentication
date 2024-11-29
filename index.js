@@ -94,7 +94,15 @@ function closeOtpModal() {
     document.getElementById('otpModal').style.display = 'none';
 }
 
-
+// const otpInput = document.getElementById("otpInput");
+// otpInput.addEventListener("keydown", function (e) {
+//   if (
+//     !["Tab"].includes(e.key) && 
+//     (e.key !== "Unidentified") 
+//   ) {
+//     e.preventDefault();
+//   }
+// });
 
 function openOtpModal() {
   
