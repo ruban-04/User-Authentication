@@ -80,6 +80,7 @@ async function editUser(id) {
   }
 }
 
+
 async function saveButton(event) {
   event.preventDefault();
 
@@ -237,46 +238,35 @@ async function saveButton(event) {
     zipError.textContent = "";
   }
 
-  if (Name.trim() === "") {
-    Nameerror.textContent = " Required*";
-    Nameerror.style.color = "red";
-    Nameerror.style.fontSize = "13px";
-    Nameerror.style.paddingLeft = "15px";
-    valid = false;
-  } else {
-    Nameerror.textContent = "";
-  }
+  const contactList = [];
+  const rows = document.querySelectorAll('#table2 tr');
 
-  if (Email.trim() === "") {
-    Emailerror.textContent = " Required*";
-    Emailerror.style.color = "red";
-    Emailerror.style.fontSize = "13px";
-    Emailerror.style.paddingLeft = "15px";
-    valid = false;
-  } else {
-    Emailerror.textContent = "";
-  }
-  if (phoneNumber.trim() === "") {
-    numberError.textContent = " Required*";
-    numberError.style.color = "red";
-    numberError.style.fontSize = "13px";
-    numberError.style.paddingLeft = "15px";
-    valid = false;
-  } else {
-    numberError.textContent = "";
-  }
+  let allRowsValid = true; // Track if all rows are valid
 
-  if (chooseDefault.trim() === "") {
-    defaultError.textContent = " Required*";
-    defaultError.style.color = "red";
-    defaultError.style.fontSize = "13px";
-    defaultError.style.paddingLeft = "15px";
-    valid = false;
-  } else {
-    defaultError.textContent = "";
-  }
+  rows.forEach(row => {
+    const Name = document.getElementById(`Name${i}`).value;
+    const Email = document.getElementById(`Email${i}`).value;
+    const phoneNumber = document.getElementById(`phoneNumber${i}`).value;
+    const chooseDefault = document.getElementById(`chooseDefault${i}`).value;
 
-  if (valid) {
+    // Validate the current row
+    const isRowValid = validateRow(i);
+    if (!isRowValid) {
+      allRowsValid = false;
+    }
+
+    // Add to contactList only if row is valid
+    if (isRowValid) {
+      contactList.push({
+        name: Name,
+        email: Email,
+        mobileNo: phoneNumber,
+        isDefault: chooseDefault,
+      });
+    }
+  });
+
+  if (valid && allRowsValid) {
     const jwtToken = localStorage.getItem("jwtToken");
 
     // try {
@@ -536,147 +526,199 @@ function populateCityDropdown(data) {
 
 fetchCurrencies();
 
+i = 1;
+function addRow() {
+  if (i == null) {
+    i = 1;
+  } else {
+    i = i;
+  }
+  i++;
+
+  const tableBody = document.getElementById("table2");
+  const newRow = document.createElement('tr');
+  newRow.id = 'tr' + i; // Assign unique ID to each row
+
+  newRow.innerHTML = `
+    <td class="serialno">${i}</td>
+    <td>
+      <div class="form-floating">
+        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Name${i}" placeholder="Name" name="Name">
+        <label for="name">Name</label>
+        <div id="Nameerror${i}"></div>
+      </div>
+    </td>
+    <td>
+      <div class="form-floating">
+        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="Email${i}" placeholder="Email" name="Email">
+        <label for="Email">Email</label>
+        <div id="Emailerror${i}"></div>
+      </div>
+    </td>
+    <td>
+      <div class="form-floating">
+        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0" style="box-shadow: none;" id="phoneNumber${i}" placeholder="Phone No" name="PhoneNo">
+        <label for="PhoneNo">Phone No</label>
+        <div id="numberError${i}"></div>
+      </div>
+    </td>
+    <td>
+      <select class="form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0" id="chooseDefault${i}" placeholder="default" name="default">
+        <option value="" selected disabled>Is Default</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      <div id="defaultError${i}"></div>
+    </td>
+    <td>
+      <i id="correctButton${i}" onClick="checkButtonClick(${i})" class="bx bx-check text-success fs-3 ms-3 mt-2"></i>
+      <i class="bx bxs-trash text-danger fs-3 ms-3 mt-2 delete-row" onclick="removeRow(${i})"></i>
+    </td>
+  `;
+
+  tableBody.appendChild(newRow);
+  updateSerialNumbers();
+}
+
+
 function updateSerialNumbers() {
   const rows = document.querySelectorAll("#table2 tr");
   rows.forEach((row, index) => {
     row.querySelector(".serialno").textContent = index + 1;
   });
 }
-i = 1;
-newRow = "";
-function addRow() {
 
-  if(i == null){
-    i=1
-  }else{
-    i = i
-  }
-  i++;
-  const tableBody = document.getElementById("table2");
-  const newRow = document.createElement('tr')
-
-
-
-  newRow.innerHTML = `
-
-             <td class="serialno"></td>
-                <td>
-                    <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Name`+i+`" placeholder=" Name" name=" Name">
-                        <label for="name"> Name</label>
-                        <div id="Nameerror"></div>
-                    </div>
-                </td>
-                <td> 
-                    <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="Email`+i+`" placeholder=" Email" name=" Email">
-                        <label for="Email"> Email</label>
-                        <div id="Emailerror"></div>
-                    </div>
-                </td>
-                <td>
-                    <div class="form-floating ">
-                        <input type="text" class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 " style="box-shadow: none;" id="phoneNumber`+i+`" placeholder=" phno" name=" phno">
-                        <label for="phno">Phone No</label>
-                        <div id="numError"></div>
-                    </div>
-                </td>
-               
-                <td>
-                    <select class=" form-select border-1 rounded-0 border-start-0 border-end-0 border-top-0 border-bottom-0"style=""id="chooseDefault`+i+`" placeholder="default"  name="default">
-                        <option value="" selected disabled class="mt-4">Is Default</option>
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
-                    </select>
-                    <label for="default"></label>
-                    <div id="defaultError"></div>
-                </td>
-                <td>
-                 <i id="`+ "correctButton" + i+`" onClick = "checkButtonClick(` + i + `)" class='bx bx-check text-success  fs-3 ms-3 mt-2 '></i>
-                <i class='bx bxs-trash text-danger fs-3 ms-3 mt-2 delete-row' id="delete" ></i>
-            </td>
-          
-  `;
-
-  tableBody.appendChild(newRow);
-  updateSerialNumbers();
-}
-function removeRow(event) {
-  if (event.target.classList.contains("delete-row")) {
-    const row = event.target.closest("tr");
-    row.remove();
-    updateSerialNumbers();
-  }
-}
-document.getElementById("addRowButton").addEventListener("click", addRow);
-document.getElementById("table2").addEventListener("click", removeRow);
 
 
 function checkButtonClick(i) {
+  const isValid = validateRow(i);
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id");
-
-  console.log(i);
   const Name = document.getElementById('Name' +i).value;
   const Email = document.getElementById('Email'+i).value;
   const phoneNumber = document.getElementById('phoneNumber'+i).value;
   const chooseDefault = document.getElementById('chooseDefault'+i).checked;
-
-  const payload = {
-    name: Name,
-    email: Email,
-    mobileNo: phoneNumber,
-    isDefault: chooseDefault,
-    id: null,
-    vendorId: id,
-    createdBy: "111c9720-4abb-4beb-9303-34d0f2df67da"
-  };
-
-  console.log(payload);
+  if (isValid) {
+    const payload = {
+      name: Name,
+      email: Email,
+      mobileNo: phoneNumber,
+      isDefault: chooseDefault,
+      id: null,
+      vendorId: id?id:'',
+      createdBy: "111c9720-4abb-4beb-9303-34d0f2df67da"
+    };
+        const jwtToken = localStorage.getItem("jwtToken");
   
-
-
-
-
- 
+        const response =  fetch(
+          "https://hastin-container.com/staging/api/vendor/contact/create",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `BslogiKey ${jwtToken}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
     
-    const jwtToken = localStorage.getItem("jwtToken");
+        if (response.ok) {
+          const result =  response.json();
+          console.log("Data saved successfully!", result);
+          alert("Data saved successfully!");
+       } else {
+          const errorMessage =  response.text(); 
+          throw new Error(errorMessage || "Vendor creation failed!");
+        }
+  }
+  return false;
+}
 
-    const response =  fetch(
-      "https://hastin-container.com/staging/api/vendor/contact/create",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `BslogiKey ${jwtToken}`, 
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    );
-
-    if (response.ok) {
-      const result =  response.json();
-      console.log("Data saved successfully!", result);
-      alert("Data saved successfully!");
-   } else {
-      const errorMessage =  response.text(); 
-      throw new Error(errorMessage || "Vendor creation failed!");
-    }
-  
-
-console.log(i);
+function validateField(value, errorElementId) {
+  const errorElement = document.getElementById(errorElementId);
+  if (!errorElement) {
+    console.error(`Element with ID '${errorElementId}' not found.`);
+    return false;
+  }
+  if (value.trim() === "") {
+    errorElement.textContent = "Required*";
+    errorElement.style.color = "red";
+    errorElement.style.fontSize = "13px";
+    errorElement.style.paddingLeft = "15px";
+    return false;
+  } else {
+    errorElement.textContent = "";
+    return true;
+  }
 }
 
 
+function validateRow(i) {
+  let isValid = true;
+  const Name = document.getElementById(`Name${i}`).value;
+  const Email = document.getElementById(`Email${i}`).value;
+  const phoneNumber = document.getElementById(`phoneNumber${i}`).value;
+  const chooseDefault = document.getElementById(`chooseDefault${i}`).value;
+
+  isValid &= validateField(Name, `Nameerror${i}`);
+  isValid &= validateField(Email, `Emailerror${i}`);
+  isValid &= validateField(phoneNumber, `numberError${i}`);
+  isValid &= validateField(chooseDefault, `defaultError${i}`);
+
+  return isValid;
+}
+
+function removeRow(i) {
+  const row = document.getElementById('tr' + i);
+  if (row) {
+    row.remove();
+    updateSerialNumbers(); 
+  }
+}
+
+document.getElementById("addRowButton").addEventListener("click", addRow);
 
 
-checkButton.addEventListener('click', async () => {
- 
-  const Name = document.getElementById('Name').value;
-  const Email = document.getElementById('Email').value;
-  const phoneNumber = document.getElementById('phoneNumber').value;
-  const chooseDefault = document.getElementById('chooseDefault').checked;
 
-  
-});
 
+async function fetchUserProfile() {
+   
+  try {
+      const jwtToken = localStorage.getItem('jwtToken');
+      
+      if (!jwtToken) {
+          alert("Authorization token is missing.");
+          return;
+      }
+
+      const response = await fetch('https://hastin-container.com/staging/auth/new/fetch/my-profile', {
+          method: 'GET',
+          headers: {
+              'Authorization': `BslogiKey ${jwtToken}`,
+              'Content-Type': 'application/json',
+          }
+      });
+
+      if (response.ok) {
+          const data = await response.json();
+          const { userName } = data.data;
+          console.log(data.data)
+
+          document.getElementById('nameUser').textContent = userName;
+        
+
+      } else {
+          throw new Error("Failed to fetch user profile");
+      }
+
+  } catch (error) {
+      console.error("Error:", error);
+      // alert("There was an error fetching the user profile.");
+  }
+}
+fetchUserProfile();
+function logoutClickButton(){
+  localStorage.removeItem("jwtToken");
+  alert("logout successfully");
+  window.location.href = "index.html";
+}

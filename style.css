@@ -32,10 +32,11 @@
 
 #formpage{
     width: 450px;
-    margin:  auto;
+    /* margin:  auto; */
     background: white;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     box-shadow: 5px 5px 23px -4px gray !important;
+   
 
 
 
@@ -194,8 +195,8 @@
     background-color:rgb(229, 102, 64);
   }
 .parent-container1{
-    display: flex;
-    justify-content: end;
+    /* /* display: flex; */
+    /* justify-content: end;  */
     /* text-align: end; */
 }
   
@@ -235,7 +236,7 @@ option{
     margin-left: 24px;
 }
 .parentcontainer{
-    text-align: end;
+    /* text-align: end; */
     /* justify-content: space-between; */
 }
 .savebutton{
@@ -280,14 +281,19 @@ option{
     padding-left: 25px;
 }
 
-#userMenu{
+/* #userMenu{
     margin-right: 2.2rem;
-}
+} */
 
 #line{
 padding-left: 2px;
 }
-
+.bxs-trash{
+    cursor: pointer;
+}
+.bx-check{
+    cursor: pointer;
+}
 
 @media only screen and (min-width:1023px) and (max-width:1439px){
 
@@ -328,8 +334,11 @@ padding-left: 2px;
     margin-right: -28px!important;
 }
 
-#userMenu{
+/* #userMenu{
     margin-right: 5px !important;
+} */
+#formpage{
+    margin-left: 9.2rem !important;
 }
 
 }
@@ -348,14 +357,14 @@ padding-left: 2px;
     margin-right: -17px  !important;
 }
 .createVendor{
-    margin-left: 8px !important;
+    margin-right: 8px !important;
 }
 .add{
     margin-left:36.9rem !important;
 }
-.parent-container1{
+/* .parent-container1{
     margin-left:181% !important ;
-}
+} */
 #circleUser{
     margin-top: 12px !important;
 }
@@ -363,16 +372,21 @@ padding-left: 2px;
     width: 95% !important;
 }
 
-.container{
+/* .container{
     
     margin-left: -12px !important;
-}
-
+} */
+/* 
 #userMenu{
     margin-right: -3rem !important;
-}
+} */
 
-
+/* .dropdown{
+    width: 106% !important;
+} */
+/* #userMenu{
+    margin-left: 90% !important;
+}  */
 
 
 }
@@ -392,11 +406,11 @@ padding-left: 2px;
         margin-right: -67px !important;
     }
     .createVendor{
-        margin-left: 8px !important;
+        margin-right: 8px !important;
     }
-    .parent-container1{
+    /* .parent-container1{
         margin-left:203% !important ;
-    }
+    } */
     .add{
         margin-left:36rem !important;
     }
@@ -406,15 +420,22 @@ padding-left: 2px;
     .modal-content{
         width: 95% !important;
     }
-
+/* 
     .container{
     
         margin-left: -12px !important;
+    } */
+    /* #userMenu{
+        margin-left:-45px !important;
+    } */
+
+    /* .dropdown{
+        width: 120% !important;
     }
-    #userMenu{
-        margin-right: -45px !important;
-    }
-    
+     */
+      /* #userMenu{
+        margin-left: 90% !important;
+    }  */
 }
 
 
@@ -431,11 +452,11 @@ padding-left: 2px;
         margin-right: -122px !important;
     }
     .createVendor{
-        margin-left: .7rem !important;
+        margin-right: .7rem !important;
     }
-    .parent-container1{
+    /* .parent-container1{
         margin-left:238% !important ;
-    }
+    } */
     .add{
         margin-left:36rem !important;
     }
@@ -446,14 +467,22 @@ padding-left: 2px;
         width: 95% !important;
     }
 
-    .container{
+    /* .container{
     
         margin-left: -12px !important;
-    }
+    } */
     
-    #userMenu{
+    /* #userMenu{
         margin-right: -50px !important;
-    }
+    } */
+
+    /* .dropdown{
+        width: 140% !important;
+    } */
+    
+    /* #userMenu{
+        margin-left: 89% !important;
+    } */
 
 }
 

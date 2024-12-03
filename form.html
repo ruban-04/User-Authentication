@@ -10,15 +10,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="d-flex" style="justify-content: space-between;">
+
+
+  
+    <nav class="navbar navbar-expand-lg p-1 fixed-top bg-light ps-2 pe-2" style="justify-content: space-between;">
+        <h3 class="ps-2 mt-1" >User</h3>
+        <div class=" usericon dropdown mt-1">
+          <i class=' bx bxs-user-circle fs-1' id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer; color: brown;"></i>              
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+            <li class="d-flex ms-3">
+                <i class="bx bxs-user-pin fs-2 mt-1" style="color: rgb(233, 95, 54);"></i>
+                <h4 id="userName" style="color: rgb(233, 95, 54);"></h4>
+            </li>
+            <li>
+              <button class="dropdown-item" onclick="logoutClickButton()">
+                <i class="bx bx-log-out-circle fs-4 mt-2" ></i> Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+        </nav>
+    
+    
+
+
+
+
+
+
+    <div class="d-flex" style="justify-content: space-between; margin-top: 2rem;">
     <h3 class="createVendor ">Create Vendor</h3>
     <div class="parentcontainer ">
         <button type="submit" class="savebutton" id="savebutton" onclick="saveButton(event)">SAVE</button>
 </div>
 </div>
      
-    <div class="d-lg-flex d-md-block  mt-5 " >
-       
+
+
+    <div class="d-lg-flex d-md-block  mt-5 container" style="gap: 30px;"  >
         <form action="" id="formpage" class="shadow-sm">
         <div class="form1">
             <h5 class="ps-3 mt-3" style="color:rgb(229, 102, 64);">Basic Information</h5>
@@ -169,14 +198,14 @@
             </thead>
           
            <tbody id="table2">
-            <tr id="tr1">
+            <tr>
                 <td class="serialno" id="rowId">1</td>
                 <td>
                     <div class="form-floating ">
                         <input type="text"
                            class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0"  autocomplete="off"   style="box-shadow: none;" id="Name1" placeholder=" Name" name=" Name">
                         <label for="name"> Name</label>
-                        <div id="Nameerror"></div>
+                        <div id="Nameerror1"></div>
                     </div>
                 </td>
                 <td> 
@@ -184,7 +213,7 @@
                         <input type="text"
                           class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 "  autocomplete="off"  style="box-shadow: none;" id="Email1" placeholder=" Email" name=" Email">
                         <label for="Email"> Email</label>
-                        <div id="Emailerror"></div>
+                        <div id="Emailerror1"></div>
                     </div>
                 </td>
                 <td>
@@ -192,7 +221,7 @@
                         <input type="text"
                           class="underInput form-control border-1 rounded-0 border-start-0 border-end-0 border-top-0 "  autocomplete="off" style="box-shadow: none;" id="phoneNumber1" placeholder=" phno" name=" phno">
                         <label for="phno">Phone No</label>
-                        <div id="numberError"></div>
+                        <div id="numberError1"></div>
                     </div>
                 </td>
                
@@ -203,7 +232,7 @@
                         <option value="false">No</option>
                     </select>
                     <label for="default"></label>
-                    <div id="defaultError"></div>
+                    <div id="defaultError1"></div>
                 </td>
                 <td>
                 <i class='bx bx-check text-success  fs-3 ms-3 mt-2' onclick="checkButtonClick(1)" id="correctButton1"></i>
@@ -221,4 +250,5 @@
     
 </body>
 <script src="form.js"></script>
+<script src = "vendor.js"></script>
 </html>

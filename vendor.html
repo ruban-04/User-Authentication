@@ -10,8 +10,36 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
+
+
+  <nav class="navbar navbar-expand-lg p-1 fixed-top bg-light ps-2 pe-2" style="justify-content: space-between;">
+    <h3 class="ps-2 mt-1" >User</h3>
+    <div class=" usericon dropdown mt-1">
+      <i class=' bx bxs-user-circle fs-1' id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer; color: brown;"></i>              
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+        <li class="d-flex ms-3">
+            <i class="bx bxs-user-pin fs-2 mt-1" style="color: rgb(233, 95, 54);"></i>
+            <h4 id="userName" style="color: rgb(233, 95, 54);"></h4>
+        </li>
+        <li>
+          <button class="dropdown-item" onclick="logoutClickButton()">
+            <i class="bx bx-log-out-circle fs-4 mt-2" ></i> Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+    </nav>
+
+
+
+
+
+
+
+
 <div id="print-table" class="container">
-    <table class="table  table-striped table-hover" style="text-align: center;">
+    <table class="table  table-striped table-hover" >
         <!-- <div class="parent-container1">
         <div class="d-flex ">
             <i class='bx bxs-user-pin fs-2 mt-1' id="user-icon"></i>
@@ -19,7 +47,7 @@
         </div>
         </div> -->
 
-        <div class="parent-container1">
+        <!-- <div class="parent-container1">
             <div class=" dropdown">
                 <i class=' bx bxs-user-circle fs-1  pt-1 ' id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer; color: brown;"></i>              
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
@@ -34,11 +62,11 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> -->
          
 
 
-        <div class="user d-flex mb-3" style="justify-content: space-between;">
+        <div class="user d-flex mb-3" style="justify-content: space-between; margin-top: 5rem;">
             
         <div class="d-flex">
             <i class='bx bxs-user-detail ' id="circleUser" style="font-size: 40px; color:rgb(222, 66, 19);"></i>

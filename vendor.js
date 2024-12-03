@@ -6,7 +6,6 @@ async function fetchUserProfile() {
         const jwtToken = localStorage.getItem('jwtToken');
         
         if (!jwtToken) {
-            alert("Authorization token is missing.");
             return;
         }
 
@@ -32,7 +31,6 @@ async function fetchUserProfile() {
 
     } catch (error) {
         console.error("Error:", error);
-        alert("There was an error fetching the user profile.");
     }
 }
 function addVendor() {
@@ -45,7 +43,6 @@ async function vendortable() {
         const jwtToken = localStorage.getItem('jwtToken');
         
         if (!jwtToken) {
-            alert("Authorization token is missing.");
             return;
         }
 
